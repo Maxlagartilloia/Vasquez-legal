@@ -30,6 +30,7 @@
     .text-accent-gold { color: var(--color-accent); }
     .border-accent-gold { border-color: var(--color-accent); }
     .bg-secondary { background-color: var(--color-secondary); }
+    .bg-accent-gold { background-color: var(--color-accent); }
 
     /* HEADER OSCURO */
     header {
@@ -39,7 +40,7 @@
         backdrop-filter: blur(8px);
     }
     .logo-nav {
-      height: 8rem;   /* logo grande */
+      height: 8rem;
       width: auto;
     }
     .nav-link {
@@ -69,7 +70,7 @@
     
     .hero-visual {
         height: 400px; 
-        background-image: url('https://placehold.co/600x800/E0E0E0/1F2937?text=Ambiente+Legal+Profesional');
+        background-image: url('https://i.postimg.cc/C1G2Vccs/06cf7e3a_558e_4dc2_8f3c_c6c30a11acc2.jpg');
         background-size: cover;
         background-position: center;
         border-radius: 0.5rem;
@@ -259,6 +260,7 @@
       <nav class="hidden md:flex items-center gap-7">
         <a href="#confianza" class="nav-link transition-colors">Por qué elegirnos</a>
         <a href="#servicios" class="nav-link transition-colors">Servicios</a>
+        <a href="#calculadora-pension" class="nav-link transition-colors">Calculadora de pensión</a>
         <a href="#testimonios" class="nav-link transition-colors">Testimonios</a>
         <a href="#nosotros" class="nav-link transition-colors">Nosotros</a>
         <a href="#contacto" class="nav-link transition-colors">Contacto</a>
@@ -310,6 +312,14 @@
           </div>
         </div>
         
+        <!-- Imagen HERO -->
+        <div class="mt-8 lg:mt-0 lg:hidden">
+          <img 
+            src="https://i.postimg.cc/C1G2Vccs/06cf7e3a_558e_4dc2_8f3c_c6c30a11acc2.jpg" 
+            alt="Vázquez Legal - Atención jurídica profesional"
+            class="w-full rounded-xl shadow-2xl object-cover"
+          />
+        </div>
         <div class="hidden lg:block hero-visual shadow-2xl"></div>
       </div>
     </section>
@@ -390,6 +400,9 @@
             <li>Fijación y reajuste de pensiones.</li>
             <li>Tenencia, visitas y medidas de protección.</li>
           </ul>
+          <a href="#calculadora-pension" class="inline-flex items-center text-xs mt-1 text-accent-gold underline underline-offset-2">
+            Ir a la calculadora de pensión alimenticia
+          </a>
         </article>
 
         <article class="card hover:translate-y-[-4px] transition-transform duration-200">
@@ -417,6 +430,131 @@
             <li>Reclamaciones por daños y deudas.</li>
           </ul>
         </article>
+      </div>
+    </section>
+
+    <!-- CALCULADORA PENSIÓN ALIMENTICIA -->
+    <section id="calculadora-pension" class="space-y-8 reveal-on-scroll pt-10 pb-16 bg-secondary">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 max-w-6xl mx-auto px-0">
+        <div>
+          <h2 class="section-title">Calculadora referencial de pensión alimenticia</h2>
+          <p class="text-sm md:text-base text-slate-700 max-w-2xl mt-2">
+            Esta herramienta aplica la fórmula básica usada en la tabla de pensiones alimenticias en Ecuador:
+            <span class="font-semibold">Pensión = Ingreso mensual × Porcentaje de la tabla ÷ 100</span>.
+            Ingresa el porcentaje que corresponda según el número de hijos, edad y nivel de ingresos.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-[1.1fr,0.9fr] gap-6 max-w-6xl mx-auto px-0">
+        <!-- Formulario calculadora -->
+        <div class="card bg-white border border-gray-200">
+          <h3 class="text-lg font-semibold text-authority mb-4">
+            Calcular monto aproximado
+          </h3>
+          <form id="pension-form" class="space-y-4 text-sm">
+            <div>
+              <label for="ingreso-mensual" class="block mb-1 text-slate-700">Ingreso mensual del alimentante (USD)</label>
+              <input
+                id="ingreso-mensual"
+                type="number"
+                min="0"
+                step="0.01"
+                required
+                class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority"
+                placeholder="Ej. 800.00"
+              >
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="porcentaje-tabla" class="block mb-1 text-slate-700">
+                  Porcentaje de la tabla (%)
+                </label>
+                <input
+                  id="porcentaje-tabla"
+                  type="number"
+                  min="0"
+                  max="100"
+                  step="0.01"
+                  required
+                  class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority"
+                  placeholder="Ej. 29.49"
+                >
+                <p class="text-[11px] text-slate-500 mt-1">
+                  Usa el % según la tabla oficial (por nivel de ingreso, número de hijos y edad).
+                </p>
+              </div>
+
+              <div>
+                <label for="numero-hijos" class="block mb-1 text-slate-700">
+                  Número de hijos beneficiarios
+                </label>
+                <input
+                  id="numero-hijos"
+                  type="number"
+                  min="1"
+                  step="1"
+                  required
+                  class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority"
+                  placeholder="Ej. 2"
+                >
+                <p class="text-[11px] text-slate-500 mt-1">
+                  Se usará para mostrar un valor referencial por cada hijo.
+                </p>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-primary w-full justify-center">
+              Calcular pensión referencial
+            </button>
+
+            <div class="mt-4 rounded-lg bg-gray-50 border border-dashed border-accent-gold px-3 py-3 text-xs text-slate-700">
+              <p class="font-semibold mb-1 text-authority">Resultado aproximado:</p>
+              <p class="mb-1">
+                Pensión total mensual: <span id="resultado-total" class="font-semibold text-accent-gold">—</span> USD
+              </p>
+              <p>
+                Pensión referencial por hijo: <span id="resultado-por-hijo" class="font-semibold text-accent-gold">—</span> USD
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <!-- Ayuda / referencia -->
+        <div class="card bg-white border border-gray-200 text-sm space-y-3">
+          <p class="font-semibold text-authority">Importante</p>
+          <ul class="list-disc list-inside text-slate-700 space-y-1 text-[13px]">
+            <li>
+              Esta calculadora es <span class="font-semibold">referencial</span> y no reemplaza la
+              <span class="font-semibold">Tabla de Pensiones Alimenticias Mínimas</span> ni la decisión de un juez.
+            </li>
+            <li>
+              La tabla oficial se basa en niveles de ingreso, número de hijos, edad y, en algunos casos, discapacidad del alimentado.
+            </li>
+            <li>
+              Para cálculos exactos puedes usar la calculadora oficial SUPA del Consejo de la Judicatura o consultar directamente con
+              Vázquez Legal.
+            </li>
+          </ul>
+
+          <div class="mt-3 space-y-2 text-[12px] text-slate-600">
+            <p class="font-semibold text-authority">Recursos útiles:</p>
+            <p>
+              • Tabla de pensiones alimenticias mínimas (Consejo de la Judicatura) – PDF oficial.<br>
+              • Calculadora SUPA en línea para obtener el porcentaje aplicable.
+            </p>
+            <p class="mt-2">
+              Si tienes dudas sobre qué porcentaje corresponde a tu caso, agenda una consulta y revisamos tu situación paso a paso.
+            </p>
+            <a
+              href="mailto:Vasquez_ab@outlook.com?subject=Consulta%20sobre%20pensi%C3%B3n%20alimenticia&body=Hola%2C%20quiero%20asesor%C3%ADa%20sobre%20el%20c%C3%A1lculo%20de%20pensi%C3%B3n%20alimenticia.%20Por%20favor%20cont%C3%A1cteme."
+              class="inline-flex mt-2 text-[12px] font-semibold text-accent-gold underline underline-offset-2"
+            >
+              Solicitar asesoría legal en pensión alimenticia
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -450,7 +588,7 @@
       </div>
     </section>
 
-    <!-- CTA INTERMEDIO YA VISIBLE -->
+    <!-- CTA INTERMEDIO -->
     <section class="reveal-on-scroll py-10">
       <div class="tilt-card p-6 md:p-8 lg:p-9 bg-authority text-white">
         <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
@@ -464,7 +602,6 @@
             </p>
           </div>
           <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-            <!-- MAIL -->
             <a
               href="mailto:Vasquez_ab@outlook.com?subject=Solicitud%20de%20evaluaci%C3%B3n%20de%20caso&body=Hola%2C%20quiero%20evaluar%20mi%20caso.%20Por%20favor%20cont%C3%A1cteme."
               class="btn-primary cta-pulse w-full text-center btn-high-contrast">
@@ -679,7 +816,7 @@
     </div>
   </footer>
 
-  <!-- ÚNICO BOTÓN CON NÚMERO: WHATSAPP -->
+  <!-- WHATSAPP FLOTANTE -->
   <a href="https://wa.me/593987348079?text=Hola,%20necesito%20asesor%C3%ADa%20legal%20urgente%20en%20Shushufindi."
      target="_blank"
      class="floating-whatsapp"
@@ -687,7 +824,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M12.03 2.004c-5.503 0-9.976 4.47-9.976 9.974 0 1.954.557 3.863 1.62 5.56L1.004 22.996l6.233-1.637a9.986 9.986 0 0 0 4.792 1.134c5.504 0 9.976-4.47 9.976-9.974.001-5.504-4.472-9.977-9.976-9.977zM17.587 15.656c-.287.712-.993 1.157-1.745 1.157-.001 0-.001 0-.002 0-.295 0-.58-.093-.815-.279-1.096-.867-2.735-1.579-4.375-1.933a.475.475 0 0 1-.225-.038c-.066-.017-.134-.035-.205-.055-.83-.244-1.69-.607-2.485-1.077-.184-.108-.346-.239-.486-.395-.69-.76-.902-1.642-.902-2.522 0-1.127.57-2.112 1.547-2.766.425-.285.875-.427 1.328-.427.247 0 .493.037.728.113.332.108.571.37.669.704l.583 1.905c.105.344.025.727-.225 1.013-.198.223-.423.334-.633.376-.024.005-.049.006-.075.006-.214 0-.427-.086-.593-.257-.14-.141-.318-.282-.505-.38-.179-.095-.367-.143-.559-.143-.192 0-.385.048-.559.143-.14.076-.282.207-.406.395-.494.757-.123 1.706.371 2.385.505.679 1.152 1.348 2.302 1.831 1.149.483 2.302.733 3.454.755.025.001.05.002.075.002.664 0 1.298-.255 1.831-.738.169-.153.303-.357.391-.567.147-.32.062-.68-.198-1.012l-.583-1.905c-.097-.334-.02-1.072.71-1.398.423-.194.887-.335 1.325-.335.216 0 .43.037.64.113.882.352 1.696.868 2.296 1.488.082.083.176.166.275.253.211.189.373.402.486.634.332.74.015 1.76-.696 2.477z"/></svg>
   </a>
 
-  <!-- MODAL (por si luego lo usas; ahora no lo abre ningún botón) -->
+  <!-- MODAL -->
   <div id="modal-cita-backdrop" class="modal-backdrop hidden opacity-0 transition-opacity duration-200">
     <div id="modal-cita-panel" class="modal-panel bg-white text-authority">
       <div class="flex items-start justify-between gap-4 mb-3">
@@ -901,6 +1038,34 @@
         const modalForm = document.getElementById('modal-form');
         if (modalForm) {
             modalForm.addEventListener('submit', (e) => handleMailtoSubmission(e, 'modal-form', true));
+        }
+
+        // Calculadora de pensión alimenticia
+        const pensionForm = document.getElementById('pension-form');
+        if (pensionForm) {
+          pensionForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const ingresoInput = document.getElementById('ingreso-mensual');
+            const porcentajeInput = document.getElementById('porcentaje-tabla');
+            const hijosInput = document.getElementById('numero-hijos');
+            const totalSpan = document.getElementById('resultado-total');
+            const porHijoSpan = document.getElementById('resultado-por-hijo');
+
+            const ingreso = parseFloat(ingresoInput.value);
+            const porcentaje = parseFloat(porcentajeInput.value);
+            const hijos = parseInt(hijosInput.value, 10);
+
+            if (isNaN(ingreso) || isNaN(porcentaje) || isNaN(hijos) || ingreso <= 0 || porcentaje <= 0 || hijos <= 0) {
+              showNotification('Por favor completa todos los campos de la calculadora con valores válidos.');
+              return;
+            }
+
+            const total = ingreso * (porcentaje / 100);
+            const porHijo = total / hijos;
+
+            totalSpan.textContent = total.toFixed(2);
+            porHijoSpan.textContent = porHijo.toFixed(2);
+          });
         }
     });
   </script>
