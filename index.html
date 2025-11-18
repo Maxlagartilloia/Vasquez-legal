@@ -12,12 +12,11 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    /* PALETA DE COLORES CORPORATIVA */
     :root {
       --color-primary: #FFFFFF; 
       --color-secondary: #F9FAFB; 
-      --color-authority: #111827; /* más oscuro para header */
-      --color-accent: #9A7D4A; /* Dorado/Cobre */
+      --color-authority: #111827; 
+      --color-accent: #9A7D4A; 
       --color-whatsapp: #25D366; 
     }
     
@@ -30,10 +29,9 @@
     .bg-authority { background-color: var(--color-authority); }
     .text-accent-gold { color: var(--color-accent); }
     .border-accent-gold { border-color: var(--color-accent); }
-    .bg-accent-gold { background-color: var(--color-accent); }
     .bg-secondary { background-color: var(--color-secondary); }
 
-    /* HEADER / NAVBAR OSCURO */
+    /* HEADER OSCURO */
     header {
         border-bottom: 1px solid #111827;
         background-color: var(--color-authority);
@@ -41,11 +39,8 @@
         backdrop-filter: blur(8px);
     }
     .logo-nav {
-      height: 8rem;  /* 4x más grande aprox */
+      height: 8rem;   /* logo grande */
       width: auto;
-    }
-    .logo-nav img {
-        filter: none;
     }
     .nav-link {
       color: #E5E7EB;
@@ -95,10 +90,11 @@
         transform: translateY(-2px);
     }
     
+    /* IMPORTANTE: no tapa el fondo del CTA oscuro */
     .tilt-card {
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       border: 1px solid #D1D5DB;
-      background: var(--color-secondary);
+      background: transparent;
       transition: none; 
       transform: none;
     }
@@ -191,13 +187,11 @@
         font-weight: 700;
     }
     
-    /* FOOTER */
     footer {
         background-color: var(--color-authority);
         color: #D1D5DB;
     }
 
-    /* MAPA RESPONSIVO */
     .map-container {
       position: relative;
       width: 100%;
@@ -214,7 +208,6 @@
       display: block;
     }
 
-    /* MODAL */
     .modal-backdrop {
         position: fixed;
         top: 0;
@@ -242,7 +235,6 @@
         transform: translateY(0);
     }
 
-    /* REVEAL-ON-SCROLL */
     .reveal-on-scroll {
       opacity: 0;
       transform: translateY(16px);
@@ -260,12 +252,10 @@
   <!-- HEADER -->
   <header class="sticky top-0 z-40">
     <div class="max-w-6xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between gap-4">
-      <!-- Logo Vázquez Legal -->
       <a href="#inicio" class="flex items-center">
         <img src="https://i.postimg.cc/h4bM02ZG/IMG-0147.png" alt="Vázquez Legal Logo" class="logo-nav" />
       </a>
 
-      <!-- Nav -->
       <nav class="hidden md:flex items-center gap-7">
         <a href="#confianza" class="nav-link transition-colors">Por qué elegirnos</a>
         <a href="#servicios" class="nav-link transition-colors">Servicios</a>
@@ -274,13 +264,13 @@
         <a href="#contacto" class="nav-link transition-colors">Contacto</a>
       </nav>
 
-      <!-- CTA header con alto contraste -->
+      <!-- CTA header => MAIL -->
       <div class="flex items-center gap-2">
-        <button
-          data-modal-target="modal-cita"
+        <a
+          href="mailto:Vasquez_ab@outlook.com?subject=Solicitud%20de%20consulta%20legal&body=Hola%2C%20necesito%20asesor%C3%ADa%20legal.%20Por%20favor%20cont%C3%A1cteme."
           class="hidden md:inline-flex btn-primary btn-high-contrast text-sm">
           Agendar Consulta
-        </button>
+        </a>
       </div>
     </div>
   </header>
@@ -291,10 +281,7 @@
     <!-- HERO -->
     <section id="inicio" class="relative">
       <div id="hero-main-container" class="relative z-10 mx-auto max-w-6xl">
-        
-        <!-- Columna de Texto -->
         <div class="max-w-4xl lg:max-w-none">
-          
           <div class="flex items-center gap-2 text-sm text-authority border-b border-accent-gold pb-2 mb-6 max-w-lg bg-white/80">
             <span class="inline-block h-2 w-2 rounded-full bg-accent-gold"></span>
             <span class="uppercase tracking-widest text-xs font-semibold text-accent-gold">
@@ -311,22 +298,19 @@
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-            <button
-              data-modal-target="modal-cita"
+            <!-- HERO CTA => MAIL -->
+            <a
+              href="mailto:Vasquez_ab@outlook.com?subject=Solicitud%20de%20consulta%20legal&body=Hola%2C%20necesito%20asesor%C3%ADa%20legal.%20Por%20favor%20cont%C3%A1cteme."
               class="btn-primary w-full sm:w-auto">
               <span>Agendar consulta legal</span>
-            </button>
+            </a>
             <a href="#confianza" class="btn-outline w-full sm:w-auto">
               Ver por qué somos diferentes
             </a>
           </div>
-          
         </div>
         
-        <!-- Columna de Imagen -->
-        <div class="hidden lg:block hero-visual shadow-2xl">
-        </div>
-
+        <div class="hidden lg:block hero-visual shadow-2xl"></div>
       </div>
     </section>
 
@@ -382,7 +366,6 @@
       </div>
 
       <div class="grid md:grid-cols-2 gap-6">
-        <!-- Penal -->
         <article class="card hover:translate-y-[-4px] transition-transform duration-200">
           <h3 class="text-xl font-semibold mb-2 text-authority">Derecho Penal: Intervención y Defensa Urgente</h3>
           <p class="text-sm text-slate-700 mb-3">
@@ -396,7 +379,6 @@
           </ul>
         </article>
 
-        <!-- Familia -->
         <article class="card hover:translate-y-[-4px] transition-transform duration-200">
           <h3 class="text-xl font-semibold mb-2 text-authority">Derecho de Familia: Soluciones con Prioridad Humana</h3>
           <p class="text-sm text-slate-700 mb-3">
@@ -410,7 +392,6 @@
           </ul>
         </article>
 
-        <!-- Laboral -->
         <article class="card hover:translate-y-[-4px] transition-transform duration-200">
           <h3 class="text-xl font-semibold mb-2 text-authority">Derecho Laboral: Defensa de Trabajadores y Empresas</h3>
           <p class="text-sm text-slate-700 mb-3">
@@ -424,7 +405,6 @@
           </ul>
         </article>
 
-        <!-- Civil -->
         <article class="card hover:translate-y-[-4px] transition-transform duration-200">
           <h3 class="text-xl font-semibold mb-2 text-authority">Derecho Civil &amp; Patrimonial: Protección de Activos</h3>
           <p class="text-sm text-slate-700 mb-3">
@@ -470,7 +450,7 @@
       </div>
     </section>
 
-    <!-- CTA INTERMEDIO -->
+    <!-- CTA INTERMEDIO YA VISIBLE -->
     <section class="reveal-on-scroll py-10">
       <div class="tilt-card p-6 md:p-8 lg:p-9 bg-authority text-white">
         <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
@@ -484,11 +464,12 @@
             </p>
           </div>
           <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-            <button
-              data-modal-target="modal-cita"
+            <!-- MAIL -->
+            <a
+              href="mailto:Vasquez_ab@outlook.com?subject=Solicitud%20de%20evaluaci%C3%B3n%20de%20caso&body=Hola%2C%20quiero%20evaluar%20mi%20caso.%20Por%20favor%20cont%C3%A1cteme."
               class="btn-primary cta-pulse w-full text-center btn-high-contrast">
               <span>Quiero evaluar mi caso</span>
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -496,10 +477,7 @@
 
     <!-- CONTACTO + MAPA -->
     <section id="contacto" class="space-y-10 reveal-on-scroll pt-10 pb-16">
-      
       <div class="grid md:grid-cols-2 gap-8 items-start">
-        
-        <!-- Mapa + info -->
         <div class="space-y-8 text-sm order-2 md:order-1">
           <div class="map-container">
             <iframe
@@ -538,13 +516,13 @@
           </div>
         </div>
 
-        <!-- Formulario -->
+        <!-- FORMULARIO -> MAILTO CON JS -->
         <div class="card bg-white border border-gray-200 order-1 md:order-2">
             <h2 class="text-2xl font-bold text-authority mb-4">
               Agenda tu Consulta Estratégica (Email)
             </h2>
             <p class="text-sm text-slate-700 mb-6">
-                Completa este formulario y nos pondremos en contacto para evaluar la urgencia y estrategia de tu caso. La información detallada se enviará directamente al correo de la abogada.
+                Completa este formulario y la información se preparará para enviarse directamente al correo de la abogada.
             </p>
             
           <form id="contact-form-main" class="space-y-4 text-sm">
@@ -599,11 +577,11 @@
             </div>
 
             <button type="submit" class="btn-primary w-full justify-center">
-              <span>Enviar información detallada (Al Email)</span>
+              <span>Preparar correo con mi información</span>
             </button>
 
             <p class="text-[11px] text-slate-500 mt-2">
-              La información enviada es confidencial y será revisada únicamente por el equipo legal del estudio.
+              Se abrirá tu cliente de correo con toda la información lista para enviar a Vázquez Legal.
             </p>
           </form>
         </div>
@@ -654,21 +632,21 @@
       </div>
     </section>
 
-    <!-- CIERRE PERSUASIVO FINAL (CONTRASTE MEJORADO) -->
+    <!-- CIERRE FINAL => MAIL -->
     <section id="final-cta" class="reveal-on-scroll py-16 bg-authority text-white">
         <div class="max-w-4xl mx-auto px-4 text-center">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
                 La decisión más importante para tu caso es <span class="text-accent-gold">hoy.</span>
             </h2>
             <p class="text-lg text-slate-100 mb-8">
-                No posponga la seguridad jurídica. Si su caso es urgente o prefiere una atención directa, una llamada
-                inmediata al número de la abogada es el primer paso para tomar control de su situación legal, con la ética
-                y el rigor que su caso merece.
+                No posponga la seguridad jurídica. Un correo inmediato al estudio es el primer paso para tomar control de su situación legal, con la ética y el rigor que su caso merece.
             </p>
             
             <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-                <a href="tel:0987348079" class="btn-primary w-full sm:w-auto text-center btn-high-contrast">
-                    <span>Llamar Ahora por Urgencia</span>
+                <a
+                  href="mailto:Vasquez_ab@outlook.com?subject=Consulta%20legal%20urgente&body=Hola%2C%20tengo%20un%20caso%20urgente%20que%20necesita%20atenci%C3%B3n.%20Por%20favor%20cont%C3%A1cteme%20lo%20antes%20posible."
+                  class="btn-primary w-full sm:w-auto text-center btn-high-contrast">
+                    <span>Contactar ahora por urgencia</span>
                 </a>
             </div>
 
@@ -701,12 +679,15 @@
     </div>
   </footer>
 
-  <!-- WHATSAPP FLOTANTE -->
-  <a href="https://wa.me/593987348079?text=Hola,%20necesito%20asesoría%20legal%20urgente%20en%20Shushufindi." target="_blank" class="floating-whatsapp" aria-label="WhatsApp de contacto inmediato">
+  <!-- ÚNICO BOTÓN CON NÚMERO: WHATSAPP -->
+  <a href="https://wa.me/593987348079?text=Hola,%20necesito%20asesor%C3%ADa%20legal%20urgente%20en%20Shushufindi."
+     target="_blank"
+     class="floating-whatsapp"
+     aria-label="WhatsApp de contacto inmediato">
     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M12.03 2.004c-5.503 0-9.976 4.47-9.976 9.974 0 1.954.557 3.863 1.62 5.56L1.004 22.996l6.233-1.637a9.986 9.986 0 0 0 4.792 1.134c5.504 0 9.976-4.47 9.976-9.974.001-5.504-4.472-9.977-9.976-9.977zM17.587 15.656c-.287.712-.993 1.157-1.745 1.157-.001 0-.001 0-.002 0-.295 0-.58-.093-.815-.279-1.096-.867-2.735-1.579-4.375-1.933a.475.475 0 0 1-.225-.038c-.066-.017-.134-.035-.205-.055-.83-.244-1.69-.607-2.485-1.077-.184-.108-.346-.239-.486-.395-.69-.76-.902-1.642-.902-2.522 0-1.127.57-2.112 1.547-2.766.425-.285.875-.427 1.328-.427.247 0 .493.037.728.113.332.108.571.37.669.704l.583 1.905c.105.344.025.727-.225 1.013-.198.223-.423.334-.633.376-.024.005-.049.006-.075.006-.214 0-.427-.086-.593-.257-.14-.141-.318-.282-.505-.38-.179-.095-.367-.143-.559-.143-.192 0-.385.048-.559.143-.14.076-.282.207-.406.395-.494.757-.123 1.706.371 2.385.505.679 1.152 1.348 2.302 1.831 1.149.483 2.302.733 3.454.755.025.001.05.002.075.002.664 0 1.298-.255 1.831-.738.169-.153.303-.357.391-.567.147-.32.062-.68-.198-1.012l-.583-1.905c-.097-.334-.02-1.072.71-1.398.423-.194.887-.335 1.325-.335.216 0 .43.037.64.113.882.352 1.696.868 2.296 1.488.082.083.176.166.275.253.211.189.373.402.486.634.332.74.015 1.76-.696 2.477z"/></svg>
   </a>
 
-  <!-- MODAL CITA -->
+  <!-- MODAL (por si luego lo usas; ahora no lo abre ningún botón) -->
   <div id="modal-cita-backdrop" class="modal-backdrop hidden opacity-0 transition-opacity duration-200">
     <div id="modal-cita-panel" class="modal-panel bg-white text-authority">
       <div class="flex items-start justify-between gap-4 mb-3">
@@ -732,19 +713,16 @@
       <form id="modal-form" class="space-y-3 text-xs">
         <div>
           <label class="block mb-1 text-slate-600">Nombre completo</label>
-          <input name="Nombre" type="text" required
-                 class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority">
+          <input name="Nombre" type="text" class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority">
         </div>
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block mb-1 text-slate-600">WhatsApp</label>
-            <input name="WhatsApp" type="tel" required
-                   class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority">
+            <input name="WhatsApp" type="tel" class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority">
           </div>
           <div>
             <label class="block mb-1 text-slate-600">Franja horaria</label>
-            <select name="Franja_Horaria" required
-              class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority">
+            <select name="Franja_Horaria" class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority">
               <option value="">Selecciona una opción</option>
               <option>Mañana (08h00 - 12h00)</option>
               <option>Tarde (13h00 - 17h00)</option>
@@ -764,9 +742,8 @@
     </div>
   </div>
 
-  <!-- JS: año, scroll reveal, modales, mailto -->
+  <!-- JS -->
   <script>
-    // Notificación flotante
     function showNotification(message, modalIdToClose) {
         if (modalIdToClose) {
             closeModal(modalIdToClose);
@@ -794,10 +771,8 @@
         }, 5000);
     }
 
-    // Año automático
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Animaciones on scroll
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
@@ -811,37 +786,14 @@
     );
     document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
 
-    // Modales
-    function openModal(id) {
-      const backdrop = document.getElementById(id + '-backdrop');
-      const panel = document.getElementById(id + '-panel');
-      if (!backdrop || !panel) return;
-      
-      backdrop.classList.remove('hidden');
-      requestAnimationFrame(() => {
-        backdrop.classList.add('opacity-100');
-        panel.classList.add('open');
-      });
-    }
-
     function closeModal(id) {
       const backdrop = document.getElementById(id + '-backdrop');
       const panel = document.getElementById(id + '-panel');
       if (!backdrop || !panel) return;
-      
       panel.classList.remove('open');
       backdrop.classList.remove('opacity-100');
-      setTimeout(() => {
-        backdrop.classList.add('hidden');
-      }, 200);
+      setTimeout(() => { backdrop.classList.add('hidden'); }, 200);
     }
-
-    document.querySelectorAll('[data-modal-target]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = btn.getAttribute('data-modal-target');
-        if (id) openModal(id);
-      });
-    });
 
     document.querySelectorAll('[data-modal-close]').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -850,13 +802,15 @@
       });
     });
 
-    document.getElementById('modal-cita-backdrop').addEventListener('click', (e) => {
-      if (e.target.id === 'modal-cita-backdrop') {
-        closeModal('modal-cita');
-      }
-    });
+    const modalBackdrop = document.getElementById('modal-cita-backdrop');
+    if (modalBackdrop) {
+      modalBackdrop.addEventListener('click', (e) => {
+        if (e.target.id === 'modal-cita-backdrop') {
+          closeModal('modal-cita');
+        }
+      });
+    }
 
-    // MAILTO dinámico
     const lawyerEmail = 'Vasquez_ab@outlook.com';
 
     function handleMailtoSubmission(event, formId, isModal = false) {
@@ -867,7 +821,7 @@
         let formElement = event.target;
         
         const getValue = (name) => formElement.querySelector(`[name="${name}"]`)?.value || 'No especificado';
-        const getRequiredValue = (name) => formElement.querySelector(`[name="${name}"]`)?.value.trim();
+        const getRequiredValue = (name) => (formElement.querySelector(`[name="${name}"]`)?.value || '').trim();
 
         if (formId === 'contact-form-main') {
             const nombre = getRequiredValue('Nombre');
@@ -931,7 +885,7 @@
         
         const successMsg = isModal 
             ? '¡Solicitud de cita generada! Revisa tu correo para confirmar el envío.'
-            : '¡Mensaje generado! Revisa tu cliente de correo y confirma el envío a Vázquez Legal.';
+            : '¡Correo preparado! Revisa tu cliente de correo y envíalo a Vázquez Legal.';
 
         setTimeout(() => {
             showNotification(successMsg, isModal ? 'modal-cita' : null);
